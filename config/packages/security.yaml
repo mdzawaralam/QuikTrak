@@ -1,0 +1,25 @@
+security:
+    password_hashers:
+        App\Entity\User:
+            algorithm: auto
+
+    providers:
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: username
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        user_login:
+            pattern: ^/api/userLogin
+            stateless: true
+            security: false # Allows anonymous access
+
+        main:
+            stateless: true
+            provider: app_user_provider
+            # This firewall is restricted to authenticated users

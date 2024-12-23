@@ -1,0 +1,96 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+create_user:
+    path: /api/createUser
+    controller: App\Controller\UserController::createUser
+    methods: POST
+
+app.swagger_ui:
+    path: /api/quiktrak/apis
+    methods: GET
+    defaults: { _controller: nelmio_api_doc.controller.swagger_ui }
+
+app.swagger:
+    path: /api/doc.json
+    methods: GET
+    defaults: { _controller: nelmio_api_doc.controller.swagger }
+
+user_login:
+    path: /api/userLogin
+    controller: App\Controller\UserController::userLogin
+    methods: POST
+
+add_job:
+    path: /api/addJob
+    controller: App\Controller\Admin\JobsController::addJob
+    methods: POST
+
+edit_job:
+    path: /api/editJob/{id}
+    controller: App\Controller\Admin\JobsController::editJob
+    methods: PATCH
+
+delete_job:
+    path: /api/deleteJob/{id}
+    controller: App\Controller\Admin\JobsController::deleteJob
+    methods: DELETE
+
+get_all_jobs:
+    path: /api/getAllJobs
+    controller: App\Controller\Admin\JobsController::getAllJobs
+    methods: GET
+
+add_timezone:
+    path: /api/addTimezone
+    controller: App\Controller\Admin\TimezoneController::addTimezone
+    methods: POST
+
+get_all_timezone:
+    path: /api/getAllTimezone
+    controller: App\Controller\Admin\TimezoneController::getAllTimezone
+    methods: GET
+
+edit_timezone:
+    path: /api/editTimezone/{id}
+    controller: App\Controller\Admin\TimezoneController::editTimezone
+    methods: PATCH
+
+delete_timezone:
+    path: /api/deleteTimezone/{id}
+    controller: App\Controller\Admin\TimezoneController::deleteTimezone
+    methods: DELETE
+
+
+assign_job:
+    path: /api/assignJob
+    controller: App\Controller\Admin\AssignedJobsToUserController::assignJob
+    methods: POST
+
+get_all_assignedjobs:
+    path: /api/getAllAssignedJobs
+    controller: App\Controller\Admin\AssignedJobsToUserController::getAllAssignedJobs
+    methods: GET
+
+edit_assignedjob:
+    path: /api/editAssignedJob/{id}
+    controller: App\Controller\Admin\AssignedJobsToUserController::editAssignedJob
+    methods: PATCH
+
+delete_assignedjob:
+    path: /api/deleteAssignedJob/{id}
+    controller: App\Controller\Admin\AssignedJobsToUserController::deleteAssignedJob
+    methods: DELETE
+
+get_my_jobs:
+    path: /api/getmMyJobs/{id}
+    controller: App\Controller\MyjobController::getmMyJobs
+    methods: GET
+
+
+edit_myjob:
+    path: /api/editMyJob/{id}
+    controller: App\Controller\MyjobController::editMyJob
+    methods: PATCH
